@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
   <title>Флэшкарточкер</title>
@@ -20,4 +20,30 @@
     </section>
   </section>
 </body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Флэшкарточкер</title>
+    <!--<link href="vendor/assets/stylesheets/bootstrap.css" rel="stylesheet" media="screen">-->
+    <%= stylesheet_link_tag  "bootstrap", media: "screen", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span8"><h1>Флэшкарточкер</h1></div>
+        <div class="span4">
+            <ul class="nav nav-pills">
+              <li><a href="#">Все карточки</a></li>
+              <li><a href="#">Добавить карточку</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
 </html>
