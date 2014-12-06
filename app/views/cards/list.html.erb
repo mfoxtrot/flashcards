@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Оригинал</th>
+      <th>Перевод</th>
+      <th>Дата проверки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @AllCards.each do |c| %>
+      <tr>
+        <td><%= c.original_text %></td>
+        <td><%= c.translated_text %></td>
+        <td><%= c.review_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
