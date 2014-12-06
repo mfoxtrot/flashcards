@@ -1,6 +1,5 @@
 Flashcards::Application.routes.draw do
   root 'home#index'
-
   resources  :cards
 
   # The priority is based upon order of creation: first created -> highest priority.
