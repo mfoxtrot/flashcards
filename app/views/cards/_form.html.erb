@@ -1,6 +1,9 @@
-<%= form_for @card, html: { class: "form-horizontal" } do |f| %>
-  <%= f.text_field :original_text %>
-  <%= f.text_field :translated_text %>
-  <%= f.date_field :review_date %>
+<%= simple_form_for @card, html: { class: "form-horizontal" } do |f| %>
+  <%= f.input :original_text, hint: false, as: :string, label: false,
+  placeholder: "Оригинал:" %>
+  <%= f.input :translated_text, hint: false, as: :string, label: false,
+  placeholder: "Перевод:" %>
+  <%= f.date_field :review_date, hint: false %>
+  <br>
   <%= f.submit button_name %>
 <% end %>
