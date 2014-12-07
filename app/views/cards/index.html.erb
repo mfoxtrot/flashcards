@@ -7,6 +7,7 @@
       <th>Дата проверки</th>
       <th>Создано</th>
       <th>Правка</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,9 +16,12 @@
         <td><%= c.id %></td>
         <td><%= c.original_text %></td>
         <td><%= c.translated_text %></td>
-        <td><%= c.review_date.strftime("%d.%m.%Y") if !c.review_date.nil? %> </td>
+        <td><%= c.review_date.strftime("%d.%m.%Y")if !c.review_date.nil? %> </td>
         <td><%= c.created_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
         <td><%= c.updated_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
+        <td>
+          <%= button_to "Удалить", card_path(c.id), method: :delete,data: {confirm: "Вы уверены?"}, class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
