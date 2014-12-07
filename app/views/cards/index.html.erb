@@ -21,12 +21,12 @@
         <td><%= c.created_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
         <td><%= c.updated_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
         <td>
-          <%= button_to "Удалить", card_path(c.id), :method => :delete,
-          :data => {:confirm => "Вы уверены?"}, :class => "btn btn-danger" %>
-          <%= link_to "Редактировать", edit_card_path(c.id), :method => :get,
-          :class => "btn btn-primary" %>
-          <%= link_to "Просмотр", card_path(c.id), :method => :get,
-          :class => "btn btn-info" %>
+          <%= button_to "Удалить", card_path(c), method: :delete,
+          data: {confirm: "Вы уверены?"}, class: "btn btn-danger" %>
+          <%= link_to "Редактировать", edit_card_path(c),
+          class: "btn btn-primary" %>
+          <%= link_to "Просмотр", card_path(c), method: :get,
+          class: "btn btn-info" %>
         </td>
       </tr>
     <% end %>

@@ -1,7 +1,1 @@
-<%= form_for @card, :url => { :action => "update" },
-:html => {:class => "form-horizontal"} do |f| %>
-  <%= f.text_field :original_text %>
-  <%= f.text_field :translated_text %>
-  <%= f.date_field :review_date %>
-  <%= f.submit "Сохранить" %>
-<% end %>
+<%= render 'form', button_name: "Сохранить" %>
