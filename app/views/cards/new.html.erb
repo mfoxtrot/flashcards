@@ -1,4 +1,5 @@
-<%= form_for @card, url: {action: "create"}, html: {class: "form-horizontal"} do |f| %>
+<%= form_for @card, :url => {:action => "create"},
+:html => {:class => "form-horizontal"} do |f| %>
   <%= f.text_field :original_text %>
   <%= f.text_field :translated_text %>
   <%= f.date_field :review_date %>

@@ -1,8 +1,6 @@
 class Card < ActiveRecord::Base
-  #validate presence
   validates :original_text, presence: true
   validates :translated_text, presence: true
-  #validate unequalness
   validate :unequalness
 
   def unequalness
