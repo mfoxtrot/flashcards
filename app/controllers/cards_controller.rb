@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :current_card, only: [:destroy, :edit, :update, :show]
+  before_action :find_card, only: [:destroy, :edit, :update, :show]
 
   def index
     @cards = Card.all
@@ -25,7 +25,6 @@ class CardsController < ApplicationController
 
   def update
     @card.update(card_params)
-    @card.save
     redirect_to cards_path
   end
 
@@ -38,7 +37,7 @@ class CardsController < ApplicationController
     params.require(:card).permit(:original_text, :translated_text, :review_date)
   end
 
-  def current_card
+  def find_card
     @card = Card.find(params[:id])
   end
 end
