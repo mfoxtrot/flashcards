@@ -5,7 +5,7 @@ class Card < ActiveRecord::Base
   def original_not_equal_translation
     #Откопал такой код на api.rubyonrails.org, возможно, есть более лаконичное
     #решение.
-    if original_text.mb_chars.downcase.to_s == translated_text.downcase.mb_chars.downcase.to_s
+    if original_text.mb_chars.downcase.to_s == translated_text.mb_chars.downcase.to_s
       errors[:base] << "Оригинал и перевод не могут совпадать!"
     end
   end
