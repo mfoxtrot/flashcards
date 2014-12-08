@@ -10,9 +10,11 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new(card_params)
-    @card.save
-    redirect_to cards_path
+    if Card.create(card_params)
+      redirect_to cards_path
+    else
+      render "new"
+    end
   end
 
   def destroy
@@ -24,8 +26,11 @@ class CardsController < ApplicationController
   end
 
   def update
-    @card.update(card_params)
-    redirect_to cards_path
+    if @card.update(card_params)
+      redirect_to cards_path
+    else
+      render "new"
+    end
   end
 
   def show

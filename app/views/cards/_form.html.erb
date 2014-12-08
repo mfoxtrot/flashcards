@@ -1,9 +1,13 @@
+<% if @card.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <% @card.errors.full_messages.each do |msg| %>
+  <%= msg %>
+  <% end %>
+</div>
+<% end %>
 <%= simple_form_for @card, html: { class: "form-horizontal" } do |f| %>
-  <%= f.input :original_text, hint: false, label: false,
-  placeholder: "Оригинал:" %>
-  <%= f.input :translated_text, hint: false, label: false,
-  placeholder: "Перевод:" %>
-  <%= f.date_field :review_date, hint: false %>
-  <br>
+  <%= f.input :original_text, hint: false, label: false, placeholder: "Оригинал:" %>
+  <%= f.input :translated_text, hint: false, label: false, placeholder: "Перевод:" %>
+  <%= f.date_field :review_date, hint: false %><br>
   <%= f.submit button_name %>
 <% end %>
