@@ -29,7 +29,7 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to cards_path
     else
-      render "new"
+      render "edit"
     end
   end
 
