@@ -6,6 +6,9 @@ gem 'rails', '4.0.5'
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 
+# Use Simple Form gem
+gem 'simple_form'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
