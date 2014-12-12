@@ -9,6 +9,6 @@ class HomeController < ApplicationController
       end
     end
 
-    @card = Card.unreviewed_recently.random
+    @card = Card.unreviewed_recently
   end
 end
