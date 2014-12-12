@@ -8,9 +8,9 @@ class Card < ActiveRecord::Base
     end
   end
 
-  scope :unreviewed_recently, -> { where('review_date <= ?', Date.today).order("RANDOM()").first }
+  scope :unreviewed, -> { where('review_date <= ?', Date.today).order("RANDOM()") }
 
-  def check_translation?(answer)
+  def check_translation(answer)
     if translated_text.mb_chars.downcase.to_s == answer.mb_chars.downcase.to_s
       update(review_date: 3.days.since)
       return true
