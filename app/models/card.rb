@@ -8,19 +8,15 @@ class Card < ActiveRecord::Base
     end
   end
 
-  scope :unreviewed_recently, -> { where('review_date <= ?', Date.today ) } do
-    def random_card
-      offset=unreviewed_recently.count
-      unreviewed_recently.find(:first, offset: rand(offset))
+  scope :unreviewed_recently, -> { where('review_date <= ?', Date.today) } do
+    def random
+      unreviewed_recently.first(order: "RANDOM()")
     end
   end
 
-  def correct_translation?(answer)
-    #Есть желание проверку на совпадение двух строк вынести в отдельный библиотечный модуль.
-    #Как это лучше сделать?
-    if self.translated_text.mb_chars.downcase.to_s == answer.mb_chars.downcase.to_s
-      self.review_date = 3.days.since
-      self.save
+  def check_translation?(answer)
+    if translated_text.mb_chars.downcase.to_s == answer.mb_chars.downcase.to_s
+      update(review_date: 3.days.since)
       return true
     else
       return false
