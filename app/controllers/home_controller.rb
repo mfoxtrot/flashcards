@@ -2,7 +2,8 @@ class HomeController < ApplicationController
 
   def index
     if params[:card_id]
-      if Card.find(params[:card_id]).check_translation(params[:answer])
+      @card=Card.find(params[:card_id])
+      if @card.check_translation(params[:answer])
         flash[:notice] = "Правильно"
       else
         flash[:notice] = "Не правильно"
