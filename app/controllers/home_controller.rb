@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     @card = Card.unreviewed.first
   end
 
-  def test
+  def checktranslation
     @card = Card.find(params[:id])
     if @card.check_translation(params[:answer])
       flash[:notice] = "Правильно"
