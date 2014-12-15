@@ -8,15 +8,16 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="span8"><h1>Флэшкарточкер</h1></div>
+        <div class="span8"><h1><%= link_to "Флэшкарточкер", root_path %></h1></div>
         <div class="span4">
             <ul class="nav nav-pills">
-              <li><%= link_to "Все карточки", cards_path  %></li>
+              <li><%= link_to "Все карточки", cards_path %></li>
               <li><%= link_to "Добавить карточку", new_card_path %></li>
             </ul>
         </div>
       </div>
       <div class="row">
+        <%= render partial: "shared/flash_messages" %>
         <%= yield %>
       </div>
     </div>

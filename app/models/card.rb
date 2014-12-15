@@ -7,4 +7,15 @@ class Card < ActiveRecord::Base
       errors[:base] << "Оригинал и перевод не могут совпадать!"
     end
   end
+
+  scope :unreviewed, -> { where('review_date <= ?', Date.today).order("RANDOM()") }
+
+  def check_translation(answer)
+    if translated_text.mb_chars.downcase.to_s == answer.mb_chars.downcase.to_s
+      update(review_date: 3.days.since)
+      return true
+    else
+      return false
+    end
+  end
 end
