@@ -1,0 +1,13 @@
+  <p>Первый в мире удобный менеджер флеш-карточек. Именно так.</p>
+  <%= form_tag check_translation_path, method: "get" do %>
+    <%= @card.original_text %><p>
+    <div class="row">
+      <div class="input-group">
+        <%= hidden_field_tag "id", @card.id %>
+        <%= text_field_tag "answer", nil, class: "form-control", placeholder: "Ваш перевод" %>
+        <span class="input-group-btn">
+        <%= submit_tag "Проверить", class: "btn btn-default", name: nil %>
+        </span>
+      </div>
+    </div>
+  <% end %>
