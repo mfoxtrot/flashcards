@@ -1,5 +1,5 @@
 Flashcards::Application.routes.draw do
   root 'home#index'
   resources :cards
-  get '/checktranslation', to: "home#checktranslation", as: :checktranslation_page
+  get '/check_translation', to: "home#check_translation", as: :check_translation_page
 end
