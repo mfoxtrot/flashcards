@@ -1,8 +1,8 @@
 class CardsController < ApplicationController
-  before_action :find_card, only: [:destroy, :edit, :update, :show, :check_translation]
+  before_action :find_card, only: [:destroy, :edit, :update, :show]
 
   def index
-    @cards = Card.find(:all, limit: 100)
+    @cards = Card.all
   end
 
   def new
