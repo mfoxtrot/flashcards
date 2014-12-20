@@ -76,13 +76,11 @@ describe Card do
     newcard = Card.new(original_text: "Nice", translated_text: "Хорошо", review_date: "01.01.2014")
     result = newcard.check_translation("Хорошо")
     expect(result).to be true
-    #expect{newcard.check_translation("Хорош")}.to be true #|| expect(newcard.review_date).to eq(3.days.since)
   end
 
   it "Should update review_date when translation is correct" do
     newcard = Card.new(original_text: "Nice", translated_text: "Хорошо", review_date: "01.01.2014")
     newcard.check_translation("Хорошо")
-    expect(newcard.review_date).to eq(3.days.since)
-    #expect{newcard.check_translation("Хорош")}.to be true #|| expect(newcard.review_date).to eq(3.days.since)
+    expect(newcard.review_date).to eq(3.days.since(DateTime.now.to_date))
   end
 end
