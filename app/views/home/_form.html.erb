@@ -1,4 +1,5 @@
   <p>Первый в мире удобный менеджер флеш-карточек. Именно так.</p>
+  <% if @card.present? %>
   <%= form_tag check_translation_page_path, method: "get" do %>
     <%= @card.original_text %><p>
     <div class="row">
@@ -10,4 +11,5 @@
         </span>
       </div>
     </div>
+  <% end %>
   <% end %>
