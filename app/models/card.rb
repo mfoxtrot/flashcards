@@ -1,5 +1,5 @@
 class Card < ActiveRecord::Base
-  validates :original_text, :translated_text, presence: true, length: { minimum: 1 }, format: { with: /[a-zA-Zа-яА-Я\s]/ }
+  validates :original_text, :translated_text, presence: true, length: { minimum: 1 }
   validate :original_not_equal_translation
 
   def original_not_equal_translation

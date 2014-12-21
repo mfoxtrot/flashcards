@@ -7,16 +7,6 @@ describe Card do
     expect{new_card.save}.not_to raise_error
   end
 
-  it "Card is invalid when when original_text doesn't include any letter" do
-    new_card = Card.new(original_text: "1234...!${%@#", translated_text: "abc", review_date: "01.01.2014")
-    expect(new_card).not_to be_valid
-  end
-
-  it "Card is invalid when translated_text doesn't include any letter" do
-    new_card = Card.new(original_text: "Yesterday", translated_text: "&)*)1243508", review_date: "01.01.2014")
-    expect(new_card).not_to be_valid
-  end
-
   it "Throw an error when original_text is nil" do
     new_card = Card.new(original_text: nil, translated_text: "abc", review_date: "01.01.2014")
     expect{new_card.save}.to raise_error
