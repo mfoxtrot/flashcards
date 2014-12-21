@@ -1,6 +1,6 @@
   <p>Первый в мире удобный менеджер флеш-карточек. Именно так.</p>
   <% if @card.present? %>
-  <%= form_tag check_translation_page_path, method: "get" do %>
+  <%= form_tag check_translation_path do %>
     <%= @card.original_text %><p>
     <div class="row">
       <div class="input-group">
