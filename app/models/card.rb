@@ -17,5 +17,6 @@ class Card < ActiveRecord::Base
     else
       return false
     end
+    redirect_to root_path
   end
 end
