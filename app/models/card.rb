@@ -1,10 +1,6 @@
 class Card < ActiveRecord::Base
-  validates :original_text, :translated_text, presence: true
+  validates :original_text, :translated_text, presence: true, length: { minimum: 1 }, format: { with: /[a-zA-Zа-яА-Я\s]/ }
   validate :original_not_equal_translation
-  validates_length_of :original_text, minimum: 1
-  validates_length_of :translated_text, minimum: 1
-  validates_format_of :original_text, with: /[ a-zA-Zа-яА-Я\s]/, message: "Оригинал не содержит ни одной буквы!"
-  validates_format_of :translated_text, with: /[ a-zA-Zа-яА-Я\s]/, message: "Перевод не содержит ни одной буквы!"
 
   def original_not_equal_translation
     if original_text.mb_chars.downcase.to_s == translated_text.mb_chars.downcase.to_s
