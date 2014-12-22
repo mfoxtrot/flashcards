@@ -37,7 +37,9 @@ gem 'rspec-rails', '~> 3.0'
 gem 'capybara'
 
 # Use factory_girl gem
-gem 'factory_girl'
+gem 'factory_girl_rails', "~> 4.0"
+
+gem 'database_cleaner'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
