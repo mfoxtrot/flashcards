@@ -36,6 +36,9 @@ gem 'rspec-rails', '~> 3.0'
 # Use Capybara gem
 gem 'capybara'
 
+# Use factory_girl gem
+gem 'factory_girl'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
