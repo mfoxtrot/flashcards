@@ -1,4 +1,5 @@
 require 'rails_helper'
+include Capybara::DSL
 
 describe "The main page: ", js: true do
 
