@@ -1,18 +1,23 @@
-require 'spec_helper'
 require 'rails_helper'
 
-describe "The main page: ", type: :feature do
+describe "The main page: ", js: true do
 
   it "Opens homepage" do
     visit(root_path)
-    page.should have_content "Первый в мире удобный менеджер флеш-карточек. Именно так."
+    expect(page).to have_content "Первый в мире удобный менеджер флеш-карточек. Именно так."
   end
 
-  it "Checks the translation" do
-    card = create(:card)
+  it "Main page shows the original text to check translation" do
+    card = FactoryGirl.create(:card)
+    visit(root_path)
+    expect(page).to have_content card.original_text
+  end
+
+  it "User's able to check the translation" do
+    card = FactoryGirl.create(:card)
     visit(root_path)
     fill_in "answer", with: card.translated_text
     click_button "Проверить"
-    page.should have_content "Правильно"
+    expect(page).to have_content "Правильно"
   end
 end

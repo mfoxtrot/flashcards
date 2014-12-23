@@ -71,6 +71,6 @@ describe Card do
   it "Should update review_date when translation is correct" do
     new_card = Card.new(original_text: "Nice", translated_text: "Хорошо", review_date: "01.01.2014")
     new_card.check_translation("Хорошо")
-    expect(new_card.review_date).to eq(3.days.since(DateTime.now.to_date))
+    expect(new_card.review_date).to eq(3.days.since(DateTime.now.utc.to_date))
   end
 end
