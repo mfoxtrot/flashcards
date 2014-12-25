@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'capybara/poltergeist'
 
 describe 'Test the main page', js: true do
 
