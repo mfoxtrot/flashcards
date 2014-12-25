@@ -1,0 +1,28 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Email</th>
+      <th>Пароль</th>
+      <th>Создано</th>
+      <th>Правка</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |u| %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.email %></td>
+        <td><%= u.password %></td>
+        <td><%= u.created_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
+        <td><%= u.updated_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
+        <td>
+          <%= button_to "Удалить", user_path(u), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger" %>
+          <%= link_to "Редактировать", edit_user_path(u), class: "btn btn-primary" %>
+          <%= link_to "Просмотр", user_path(u), class: "btn btn-info" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
