@@ -10,7 +10,3 @@ addons:
 before_script:
   - psql -c 'create database travis_ci_flashcards;' -U postgres
 
-test:
-  adapter: postgresql
-  database: travis_ci_flashcards
-  username: postgres
