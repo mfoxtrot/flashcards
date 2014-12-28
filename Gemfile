@@ -30,6 +30,8 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'validates_email_format_of'
+
 group :test do
   # Use RSpec gem
   gem 'rspec-rails', '~> 3.0'
