@@ -1,9 +1,9 @@
 <% if @user.errors.any? %>
-<div class="alert alert-danger" role="alert">
+  <div class="alert alert-danger" role="alert">
   <% @user.errors.full_messages.each do |msg| %>
-  <%= msg %>
+    <%= msg %>
   <% end %>
-</div>
+  </div>
 <% end %>
 <%= simple_form_for @user, html: { class: "form-horizontal" } do |f| %>
   <%= f.input :email, hint: false, label: false, placeholder: "Email" %>
