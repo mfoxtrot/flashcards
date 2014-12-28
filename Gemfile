@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'validates_email_format_of'
 
+gem 'sorcery'
+
 group :test do
   # Use RSpec gem
   gem 'rspec-rails', '~> 3.0'
