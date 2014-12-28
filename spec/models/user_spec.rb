@@ -22,11 +22,6 @@ describe User do
     expect(new_user).not_to be_valid
   end
 
-  it "Is not valid when entered email doesn't match email format" do
-    new_user = User.new(email: "johndoe@gmail", password: "12345")
-    expect(new_user).not_to be_valid
-  end
-
   it "Is able to have many cards" do
     new_user = User.new(email: "johndoe@gmail.com", password: "12345")
     new_user.save
