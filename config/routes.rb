@@ -1,9 +1,10 @@
 Flashcards::Application.routes.draw do
-  get "user_sessions/new"
-  get "user_sessions/create"
-  get "user_sessions/destroy"
+
+  get 'login' => 'user_sessions#new', as: :login
+  get 'logout' => 'user_sessions#destroy', as: :logout
   root 'home#index'
   resources :cards
   resources :users
+  resources :user_sessions
   post 'check_translation', to: "home#check_translation"
 end

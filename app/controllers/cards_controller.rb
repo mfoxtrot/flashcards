@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+
   before_action :find_card, only: [:destroy, :edit, :update, :show]
 
   def index
