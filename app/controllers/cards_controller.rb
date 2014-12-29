@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_action :find_card, only: [:destroy, :edit, :update, :show]
 
   def index
-    @cards = Card.all
+    @cards = current_user.cards.all
   end
 
   def new
@@ -11,7 +11,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    if Card.create(card_params)
+    if current_user.cards.create(card_params)
       redirect_to cards_path
     else
       render "new"
@@ -38,12 +38,12 @@ class CardsController < ApplicationController
   end
 
   def find_card
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
   end
 
   private
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date, :user_id)
+    params.require(:card).permit(:original_text, :translated_text, :review_date)#.merge(user: current_user)
   end
 end

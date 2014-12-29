@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
   validates_email_format_of :email, message: "Некорректный адрес эл.почты"
+
+  has_many :cards
 end

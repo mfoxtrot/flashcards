@@ -9,6 +9,5 @@
   <%= f.input :original_text, hint: false, label: false, placeholder: "Оригинал:" %>
   <%= f.input :translated_text, hint: false, label: false, placeholder: "Перевод:" %>
   <%= f.date_field :review_date, hint: false %><br>
-  <%= f.association :user, hint: false, label: false, label_method: :email %>
   <%= f.submit button_name %>
 <% end %>

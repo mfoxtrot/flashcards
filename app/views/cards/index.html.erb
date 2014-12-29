@@ -11,21 +11,23 @@
     </tr>
   </thead>
   <tbody>
-    <% @cards.each do |c| %>
-      <tr>
-        <td><%= c.id %></td>
-        <td><%= c.original_text %></td>
-        <td><%= c.translated_text %></td>
-        <td><%= c.review_date.strftime("%d.%m.%Y") if !c.review_date.nil? %>
-        </td>
-        <td><%= c.created_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
-        <td><%= c.updated_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
-        <td>
-          <%= button_to "Удалить", card_path(c), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger" %>
-          <%= link_to "Редактировать", edit_card_path(c), class: "btn btn-primary" %>
-          <%= link_to "Просмотр", card_path(c), class: "btn btn-info" %>
-        </td>
-      </tr>
+    <% if @cards.count>0 %>
+      <% @cards.each do |c| %>
+        <tr>
+          <td><%= c.id %></td>
+          <td><%= c.original_text %></td>
+          <td><%= c.translated_text %></td>
+          <td><%= c.review_date.strftime("%d.%m.%Y") if !c.review_date.nil? %>
+          </td>
+          <td><%= c.created_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
+          <td><%= c.updated_at.strftime("%d.%m.%Y %H:%M:%S") %></td>
+          <td>
+            <%= button_to "Удалить", card_path(c), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger" %>
+            <%= link_to "Редактировать", edit_card_path(c), class: "btn btn-primary" %>
+            <%= link_to "Просмотр", card_path(c), class: "btn btn-info" %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
