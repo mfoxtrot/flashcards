@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  #attr_accessible :email, :password, :password_confirmation, :authentications_attributes
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
 
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true
@@ -9,4 +12,8 @@ class User < ActiveRecord::Base
   validates_email_format_of :email, message: "Некорректный адрес эл.почты"
 
   has_many :cards
+
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
+
 end

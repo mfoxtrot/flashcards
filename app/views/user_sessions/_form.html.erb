@@ -11,4 +11,5 @@
     <%= submit_tag "Войти" %>
   </div>
 <% end %>
-<%= link_to "Новый пользователь", new_user_path %>
+<%= link_to "Новый пользователь", new_user_path %><br>
+<%= link_to "У меня есть @Twitter", auth_at_provider_path(provider: :twitter) %>
