@@ -1,15 +1,17 @@
 class User < ActiveRecord::Base
-  #attr_accessible :email, :password, :password_confirmation, :authentications_attributes
+  #  attr_accessible :email, :password, :password_confirmation, :authentications_attributes
+  attr_accessor :external
+
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end
 
-  validates :password, length: { minimum: 3 }
-  validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password, length: { minimum: 3 }, unless: -> { @external }
+  validates :password, confirmation: true, unless: -> { @external }
+  validates :password_confirmation, presence: true, unless: -> { @external }
 
   validates :email, uniqueness: true
-  validates_email_format_of :email, message: "Некорректный адрес эл.почты"
+  validates_email_format_of :email, message: "Некорректный адрес эл.почты", unless: -> { @external }
 
   has_many :cards
 

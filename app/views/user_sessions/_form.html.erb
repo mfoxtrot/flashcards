@@ -12,4 +12,4 @@
   </div>
 <% end %>
 <%= link_to "Новый пользователь", new_user_path %><br>
-<%= link_to "У меня есть @Twitter", auth_at_provider_path(provider: :twitter) %>
+<p>У меня есть <%= link_to "@Twitter", auth_at_provider_path(provider: :twitter) %></p>
