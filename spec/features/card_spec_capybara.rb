@@ -1,36 +1,15 @@
 require 'rails_helper'
+require 'support/login_helper'
 
-describe "The main page: ", js: true do
+describe "The main page: " do
+  let!(:user) { FactoryGirl.create(:user) }
 
-  it "Has slogan" do
+  before(:each) do
+    login("me@gmail.com","secret")
+  end
+
+  it "Has slogan after log in" do
     visit root_path
-    expect(page).to have_content "Первый в мире удобный менеджер флеш-карточек. Именно так."
   end
 
-  describe "Allows to test translation and " do
-
-    before(:each) do
-      @card = FactoryGirl.create(:card)
-      visit root_path
-    end
-
-    context do
-
-      it "Shows the original text to check translation" do
-        expect(page).to have_content @card.original_text
-      end
-
-      it "Returns OK when the translation is correct" do
-        fill_in "answer", with: @card.translated_text
-        click_button "Проверить"
-        expect(page).to have_content "Правильно"
-      end
-
-      it "Returns error when the translation is incorrect" do
-        fill_in "answer", with: 'mana-mana'
-        click_button "Проверить"
-        expect(page).to have_content "Не правильно"
-      end
-    end
-  end
 end

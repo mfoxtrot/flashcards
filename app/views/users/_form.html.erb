@@ -8,5 +8,6 @@
 <%= simple_form_for @user, html: { class: "form-horizontal" } do |f| %>
   <%= f.input :email, hint: false, label: false, placeholder: "Email" %>
   <%= f.input :password, hint: false, label: false, placeholder: "Пароль" %>
+  <%= f.input :password_confirmation, hint: false, label: false, placeholder: "Повторите пароль" %>
   <%= f.submit button_name %>
 <% end %>
