@@ -20,16 +20,22 @@ require 'capybara/poltergeist'
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, :window_size => [1920, 1080], :phantomjs_logger => nil)
-end
-Capybara.javascript_driver = :poltergeist
-Capybara.default_driver = :poltergeist
+#Capybara.register_driver :poltergeist do |app|
+#  Capybara::Poltergeist::Driver.new(app)
+#end
+
+#Capybara.javascript_driver = :poltergeist
+#options = { js_errors: false, timeout: 15, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes'] }
+
+#Capybara.default_driver = :poltergeist
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
   config.include FactoryGirl::Syntax::Methods
+  config.include Sorcery::TestHelpers::Rails::Controller, type: :controller
+  config.include Sorcery::TestHelpers::Rails::Integration, type: :feature
+  #config.include AuthenticationForFeatureRequest, type: :feature
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
